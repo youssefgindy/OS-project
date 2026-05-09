@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CPU Scheduling Simulator | Round Robin & Preemptive Priority</title>
+    <link rel="stylesheet" href="os.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>⚙️ CPU Scheduling Simulator</h1>
+    <p class="rule">🔹 Priority Rules: Lower number = Higher Priority  |  Preemptive (strict higher priority preempts)  |  Equal priority → FCFS</p>
+
+    <div class="card">
+        <h3>📋 Add New Process</h3>
+        <input type="text" id="pid" placeholder="ID (e.g., P1, A, 1)" autocomplete="off">
+        <input type="number" id="at" placeholder="Arrival Time">
+        <input type="number" id="bt" placeholder="Burst Time">
+        <input type="number" id="pr" placeholder="Priority (lower=higher)">
+        <button onclick="addProcess()">➕ Add Process</button>
+        <button class="clearBtn" onclick="clearAll()">🗑️ Clear All</button>
+    </div>
+
+    <div class="card">
+        <h3>⏱️ Round Robin Quantum</h3>
+        <input type="number" id="quantum" placeholder="Time Quantum (e.g., 2)" value="2">
+    </div>
+
+    <div class="card">
+        <h3>📊 Process Table</h3>
+        <table id="ptable">
+            <thead>
+                <tr><th>ID</th><th>AT</th><th>BT</th><th>Priority</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <button class="runBtn" onclick="runSimulation()">▶ RUN SIMULATION</button>
+    <div id="legend"></div>
+
+    <div class="results">
+        <div class="section">
+            <h2>🔄 Round Robin (RR)</h2>
+            <div id="rrGantt"></div>
+            <div id="rrTable"></div>
+        </div>
+        <div class="section">
+            <h2>⚡ Preemptive Priority</h2>
+            <div id="prGantt"></div>
+            <div id="prTable"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📈 Comparison & Insights</h3>
+        <div id="report"></div>
+    </div>
+</div>
+
+<script src="os.js"></script>
+</body>
+</html>
